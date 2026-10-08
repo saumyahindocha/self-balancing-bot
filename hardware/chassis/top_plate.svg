@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="230mm" height="100mm" viewBox="0 0 230 100">
+  <!-- TOP PLATE - 230mm x 100mm x 6mm acrylic -->
+  <!-- Outer outline -->
+  <rect x="0" y="0" width="230" height="100" fill="none" stroke="black" stroke-width="0.1"/>
+
+  <!-- Corner mounting holes for 6mm threaded rods (6.5mm dia for clearance) -->
+  <circle cx="15" cy="15" r="3.25" fill="none" stroke="black" stroke-width="0.1"/>
+  <circle cx="215" cy="15" r="3.25" fill="none" stroke="black" stroke-width="0.1"/>
+  <circle cx="15" cy="85" r="3.25" fill="none" stroke="black" stroke-width="0.1"/>
+  <circle cx="215" cy="85" r="3.25" fill="none" stroke="black" stroke-width="0.1"/>
+
+  <!-- NOTE: Battery strap/zip-tie slots intentionally omitted.
+       Add slots based on your actual 3S LiPo battery dimensions
+       once it's in hand, to ensure a snug, secure fit. -->
+</svg>

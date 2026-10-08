@@ -1,0 +1,39 @@
+Subsystem,Component,Specification,Qty,Est. cost min (INR),Est. cost max (INR),Status
+Robot,Arduino Mega 2560,Clone,1,600,800,In use
+Robot,MPU6500 IMU module,I2C breakout,1,150,250,In use
+Robot,L298N motor driver module,Dual H-bridge,1,150,200,In use
+Robot,12 V DC planetary geared motor,No encoder; 100-150 RPM was the shopping target (not a report value),2,600,1200,In use (delivery expected 30 Jun 2026)
+Robot,Wheels,100 mm dia x 44 mm wide,2,300,600,In use
+Robot,3S LiPo battery,11.1 V nominal; >= 2200 mAh,1,1500,2500,In use
+Robot,LiPo balance charger,3S compatible,1,500,800,In use
+Robot,XT60 connector pair,Male + female,1,50,80,In use
+Robot,Acrylic sheet,230 x 100 x 6 mm (laser cut 24 Jun 2026),3,400,700,In use
+Robot,Threaded rod,M6 x 150 mm,4,100,150,In use
+Robot,Nuts,M6,25,50,80,In use
+Robot,Bolts,M3 x 10 mm,25,50,80,In use
+Robot,Spacers / standoffs,M3,12,80,120,In use
+Robot,IR sensor module,Digital output,3,150,250,Shelved (line following)
+Robot,NRF24L01 + PA + LNA with antenna,Robot-side receiver,1,200,350,Shelved (remote)
+Remote,Arduino Nano,Clone,1,300,450,Shelved (remote)
+Remote,NRF24L01 + PA + LNA with antenna,Remote-side transmitter,1,200,350,Shelved (remote)
+Remote,KY-023 joystick module,2-axis + button,1,80,120,Shelved (remote)
+Remote,Toggle switch,"SPST (listed for power; the remote has an IR / manual mode switch on D2)",1,20,40,Shelved (remote)
+Remote,9 V battery,Standard,2,60,100,Shelved (remote)
+Remote,9 V battery clip,With leads,1,20,30,Shelved (remote)
+Remote,Perfboard,Approx. 5 x 7 cm (replaced the custom PCB),1,,,Shelved (remote)
+Remote,Remote PCB,EasyEDA design; JLCPCB estimate,1,400,700,Not manufactured
+Passives,100 uF electrolytic capacitor,16 V+ (NRF decoupling; L298N input bulk cap),4,20,40,In use
+Passives,10 uF electrolytic capacitor,16 V+,4,20,40,Spare
+Wiring,Silicone wire red,18 AWG x 1 m (battery and motor runs),1,50,80,In use
+Wiring,Silicone wire black,18 AWG x 1 m,1,50,80,In use
+Wiring,Hookup wire red / black / yellow / green / blue / white,22 AWG x 2 m each,6,360,600,In use
+Wiring,Jumper wires M-F / M-M / F-F,40-piece packs,3,240,360,In use
+Wiring,USB-A to USB-B cable,Mega programming and power,1,80,150,In use
+Wiring,USB-A to Mini-USB cable,Nano programming,1,80,150,Shelved (remote)
+Wiring,Small breadboard,Bench testing,1,50,80,In use
+Consumables,Heat-shrink tubing,Assorted,1,50,80,In use
+Consumables,Electrical tape,Standard,1,30,50,In use
+Consumables,Solder wire,60/40 rosin core,1,100,150,In use
+Recommended add-on,100 nF ceramic capacitor,50 V; soldered across each motor's terminals,2,,,Recommended 8 Aug 2026
+Recommended add-on,10 nF ceramic capacitor,50 V; each motor terminal to motor case,4,,,Recommended 8 Aug 2026 (optional)
+Recommended add-on,Finned heatsink for L298N,With thermal paste,1,30,50,Recommended 21 Jun 2026

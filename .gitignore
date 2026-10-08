@@ -1,0 +1,14 @@
+# Arduino / PlatformIO build output
+build/
+.pio/
+*.hex
+*.elf
+
+# MATLAB autosave
+*.asv
+*.mat~
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
