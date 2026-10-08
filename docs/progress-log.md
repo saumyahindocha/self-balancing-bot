@@ -136,6 +136,18 @@ on the evening of the 1st shows up here under the 2nd.
 - Minimum battery voltage for balancing: **about 9.5 V** (the L298N drops
   about 2 V). Tune between 11 and 12.6 V and charge below 10.5 V.
 
+### After 18 Aug 2026: Assembled, balancing, exhibited
+- A photo from 18 Aug (01:35) shows the robot fully assembled on the acrylic
+  chassis. The Mega, L298N with heatsink, and the LiPo on the top plate are
+  visible, and the Serial Monitor reads pitch ≈ 10° with PWM −250, the
+  full-power recovery zone.
+- **The robot balanced unassisted.** The video in
+  [`media/balancing-unassisted.mp4`](media/balancing-unassisted.mp4) shows it
+  standing on its own for about 50 seconds before it is nudged. The exact date
+  of the video and the final gains used weren't recorded.
+- Exhibited at the **ITSP 2026** showcase with a poster
+  ([`images/itsp-2026-poster.jpg`](images/itsp-2026-poster.jpg)).
+
 ### 5 Sep 2026: BOM
 - Re-issued the component list. Shelving the remote takes the
   NRF/Nano/PCB lines out of the active build.
@@ -154,7 +166,5 @@ on the evening of the 1st shows up here under the 2nd.
     at the final gains with a fast ~17 ms rise, but it has an ~8 % offset and
     a ~1 s tail (see [simulation](simulation.md)).
 
-**Open:** the chat ends on 18 Aug 2026. At that point the IMU readings and the
-direct motor test worked, but the motors weren't yet responding under PID
-control, and the direction fix had been proposed but not confirmed. Chassis
-assembly and any balancing result aren't recorded.
+**Open:** the final PID gains and the measured dead-zone value from the
+balancing run still need to be copied into `firmware/balance`.

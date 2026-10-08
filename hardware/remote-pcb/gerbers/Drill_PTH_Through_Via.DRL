@@ -1,0 +1,15 @@
+;TYPE=PLATED
+;Layer: PTH_Through_Via
+;EasyEDA Pro v2.2.47.7, 2026-05-26 03:40:43
+;Gerber Generator version 0.3
+M48
+METRIC,LZ,0000.00000
+;Hole size 1 = 0.30500 METRIC
+T01C0.30500
+%
+G05
+G90
+T01
+X-45.212Y-19.431
+X-51.816Y-17.399
+M30

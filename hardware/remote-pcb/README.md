@@ -27,13 +27,23 @@ CE = D9 and CSN = D10 were confirmed against the schematic on 2 Jun 2026. The
 joystick pins were read from a screenshot and confirmed the same day ("the
 joystick pattern is perfect").
 
+## Gerbers
+
+[`gerbers/`](gerbers) holds the fabrication output exported from EasyEDA Pro
+(v2.2.47.7) on 26 May 2026. It's a 2-layer board: top/bottom copper, solder
+mask, silkscreen, paste, board outline, and PTH/NPTH drill files. To order
+boards, zip the folder's contents and upload them to JLCPCB/PCBWay.
+
+![Remote PCB layers](../../docs/images/remote-pcb-layers.png)
+
+The silkscreen shows U1 (Nano), U2 (NRF24L01 with antenna overhang), H1
+(joystick header), H2 (power header), C1, U4 (switch) and U5 (regulator).
+
 ## Files not in this repo yet
 
-The EasyEDA project, the schematic and layout exports, and the Gerbers. Only
-screenshots of them were shared, and those weren't kept. To complete this
-folder, export from EasyEDA:
-- `remote.json` (File > Save As / Export EasyEDA source)
-- `schematic.pdf` / `schematic.svg`
-- `gerbers.zip` and `netlist.net`
+The EasyEDA source project and the schematic export. To complete this folder,
+export from EasyEDA:
+- the project source (File > Export > EasyEDA Pro project)
+- `schematic.pdf`
 
 Add the Fusion 360 enclosure as `../enclosure/` (`.f3d` and `.stl`).

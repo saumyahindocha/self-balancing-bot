@@ -4,17 +4,22 @@ A two-wheeled inverted-pendulum robot built on an Arduino Mega. An MPU6500
 IMU feeds a Kalman filter for pitch, and a PID loop drives two 12 V planetary
 gear motors through an L298N to keep the robot upright. The first design also
 had IR line following and a handheld NRF24L01 remote with an IR/manual mode
-switch. Those parts are built and their code is archived here, but they're on
-hold while the balancing gets tuned.
+switch. Those parts are built and their code is archived here, but they were
+set aside to get the balancing working first.
 
-Built by **Team NIDS** at IIT Bombay as an ITSP project in mechatronics,
-May-Aug 2026.
+Built by **Team NIDS** at IIT Bombay for the Institute Technical Summer
+Project (ITSP) 2026, mechatronics domain, May-Aug 2026.
 
-> **Status (last update 18 Aug 2026):** the IMU readings and a direct motor
-> test work. The motors weren't yet responding under PID control, and the
-> motor-direction fix had been proposed but not confirmed. Chassis assembly
-> and any balancing result aren't recorded yet. See the
-> [progress log](docs/progress-log.md).
+<p align="center">
+  <img src="docs/images/balancing.gif" alt="The robot balancing on its own on a tiled floor" width="260">
+</p>
+
+> **Status:** the robot balances on its own. The
+> [full video](docs/media/balancing-unassisted.mp4) shows it standing
+> unassisted for about 50 seconds before a nudge. It was exhibited at the ITSP
+> 2026 showcase. The PID gains used for that run weren't recorded, so
+> `firmware/balance` still has the starting values from the tuning guide. See
+> the [progress log](docs/progress-log.md).
 
 ## How it works
 
@@ -39,8 +44,8 @@ flowchart LR
    Beyond ±17.5° the robot drives at full power back towards upright, and
    beyond ±35° it counts as fallen and stops.
 3. **Act.** The motors have no encoders and don't move below a certain PWM,
-   so commands are remapped above that threshold. You measure it with a
-   bench sketch; it hasn't been measured on this build yet. Both wheels get
+   so commands are remapped above that threshold. You measure the threshold
+   with a bench sketch. Both wheels get
    the same command, since the robot only balances and doesn't steer.
 
 The control design follows a linearised Euler-Lagrange model. It was tuned in
@@ -58,7 +63,7 @@ and examined in [docs/simulation.md](docs/simulation.md).
 | Wheels | 100 mm × 44 mm |
 | Power | 3S LiPo 11.1 V for the motors; USB for the logic |
 | Chassis | 3 × 230 × 100 × 6 mm laser-cut acrylic plates on M6 rods |
-| Remote (shelved) | Arduino Nano, KY-023 joystick, NRF24L01+PA+LNA, 9 V; custom EasyEDA PCB, built on perfboard |
+| Remote (shelved) | Arduino Nano, KY-023 joystick, NRF24L01+PA+LNA, 9 V; custom EasyEDA PCB ([Gerbers](hardware/remote-pcb/gerbers)), built on perfboard |
 
 Full part list with cost estimates: [hardware/bom.csv](hardware/bom.csv).
 The parts in use add up to roughly ₹5.6-9.2k.
@@ -75,6 +80,23 @@ The parts in use add up to roughly ₹5.6-9.2k.
 
 Full wiring, power rules and protection parts: [docs/wiring.md](docs/wiring.md).
 
+## Gallery
+
+| | |
+|---|---|
+| ![Robot CAD in Fusion 360](docs/images/cad-robot-fusion360.jpg) | ![Assembled robot, 18 Aug 2026](docs/images/assembled-robot-2026-08-18.jpg) |
+| Robot CAD (Fusion 360) | Assembled robot during PID bring-up, 18 Aug 2026 |
+| ![Remote CAD in Fusion 360](docs/images/cad-remote-fusion360.jpg) | ![3D-printed remote enclosure](docs/images/remote-enclosure-print.jpg) |
+| Remote enclosure CAD: KY-023, PCB, 9 V holder | 3D-printed pistol-grip enclosure |
+| ![Bench setup](docs/images/bench-mega-nano-nrf.jpg) | ![ITSP 2026 exhibit](docs/images/itsp-2026-exhibit.jpg) |
+| Bench testing: Mega, Nano and both NRF24L01 modules | At the ITSP 2026 exhibition |
+
+![Remote PCB layers](docs/images/remote-pcb-layers.png)
+*Remote PCB, rendered from the Gerbers (EasyEDA Pro, 26 May 2026).*
+
+Also included: the [exhibition poster](docs/images/itsp-2026-poster.jpg) and
+a [handheld motor-response test](docs/media/motor-response-handheld.mp4).
+
 ## Repository
 
 ```
@@ -87,7 +109,7 @@ firmware/
 hardware/
   bom.csv                bill of materials
   chassis/               laser-cut plate SVGs (1:1, mm)
-  remote-pcb/            remote PCB notes and pin map
+  remote-pcb/            remote PCB notes, pin map and Gerbers
 matlab/
   balance_model.m        linearised model + PID step-response check
 docs/
@@ -95,6 +117,7 @@ docs/
   tuning.md              bring-up and PID tuning procedure
   wiring.md              wiring tables
   simulation.md          MATLAB model, tuning runs and findings
+  images/, media/        photos, CAD screenshots, PCB render, videos
 ```
 
 ## Getting started
@@ -114,12 +137,13 @@ docs/
 
 ## What's next
 
-- [ ] Measure the dead zone, find out why the motors didn't respond under PID control, and confirm the direction fix
-- [ ] Assemble on the chassis and tune Kp, then Kd, then Ki until it balances unassisted
+- [x] Balance unassisted (ITSP 2026 showcase)
+- [ ] Record the final tuned gains and dead-zone value in `firmware/balance`
 - [ ] Add a PWM slew-rate limiter and the motor noise capacitors
 - [ ] Wheel encoders (AS5600 or Hall sensors), then an outer speed/position loop to remove drift
 - [ ] Bring back the IR line following, then the NRF remote, on top of a stable balance loop
-- [ ] Add the EasyEDA project, Gerbers, Fusion 360 files and build photos
+- [x] Gerbers and build photos
+- [ ] Add the EasyEDA source project and the Fusion 360 files
 
 ## Team
 
